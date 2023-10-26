@@ -34,3 +34,15 @@
 - Micro USB-B
 - Leave shield floating
 ````
+
+````bash
+# Flashing
+- Use 20 pin header with 2.54mm pitch for SEGGER j-link
+  - VTref  -> VCC / 3.3V
+  - GND    -> GND
+  - TMS    -> SWDIO  (Serial Wire debug Data Input/Output)
+  - TCK    -> SWDCLK (Serial Wire Clock)
+  - TDO    -> SWO    (Serial Wire trace Output)
+  - nRESET -> nRESET
+  - leave rest of the pins unconnected
+````

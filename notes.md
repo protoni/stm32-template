@@ -57,6 +57,12 @@
 # USB
 - Micro USB-B
 - Leave shield floating
+- Resettable fuse for VBUS
+  - for example SMD0805B035TF
+    - 0.10sec trip time
+    - hold current is a little bit over the needed value ( 330mA ),
+      but it's a lot cheaper than fuses with lower value
+- Add ESD protection diodes for USB D+/D- ( for example IP4234CZ6 )
 ````
 
 ````bash

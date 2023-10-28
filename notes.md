@@ -63,6 +63,39 @@ C_EXT = 27pF
 ````
 
 ````bash
+# LEDs
+B1911USD-20D000114U1930
+
+# Color
+Red
+
+# Calculate current limiting resistor for LEDs
+Power supply    ( V )  = 3.3V
+Forward voltage ( Vf ) = 2V
+Current draw    ( I )  = 5mA
+Resistor value  ( R )  = ?
+
+# Voltage across the resistor ( Vr ):
+Vr = V - Vf
+Vr = 3.3V - 2V
+Vr = 1.3V
+
+# Resistor value:
+R = Vr/I
+R = 1.3V / 0.005 A
+R = 260 Ohm
+
+# Calculate power dissipation
+P = I2 * R
+P = (0.005A)2 * 260 Ohm
+P = 0.0065 W
+P = 6.5 mW
+
+# Resistor 
+RC0603FR-13270RL = 270 Ohm / 0.1W
+````
+
+````bash
 # Regulator AMS1117-3.3
 - 5V -> 3.3V
 - Needs 22uF tantalum capacitor for output filtering, if adjustment
@@ -106,25 +139,31 @@ C_EXT = 27pF
 ````bash
 # Parts
 
-# Part num.         # Package   # Value   # Info           # Type
-TMCP0J106MTRF       0805        10uF      6.3V             Tantalum cap.
+# Part num.               # Package   # Value   # Info           # Type
+TMCP0J106MTRF             0805        10uF      6.3V             Tantalum cap.
 - C1
 
-TL8W9226M010C       0805        22uF      10V              Tantalum cap.
+TL8W9226M010C             0805        22uF      10V              Tantalum cap.
 - C2
 
-VJ0805A270GXQCW1BC  0805        27pF      10V              Ceramic cap.
+VJ0805A270GXQCW1BC        0805        27pF      10V              Ceramic cap.
 - C17, C18
 
-KGM15AR70J104KM     0603        0.1uF     6.3V             Ceramic cap.
+KGM15AR70J104KM           0603        0.1uF     6.3V             Ceramic cap.
 - C3, C7, C9, C11, C13, C15, C19, C21
 
-CL10B105KQ8NNNC     0603        1uF       6.3V             Ceramic cap.
+CL10B105KQ8NNNC           0603        1uF       6.3V             Ceramic cap.
 - C4, C16, C20
 
-CL10A106MQ8NNNC     0603        10uF      6.3V             Ceramic cap.
+CL10A106MQ8NNNC           0603        10uF      6.3V             Ceramic cap.
 - C5, C6, C8, C10, C12, C14
 
-ABLS-8.000MHZ-B4-T  HC-49/US    8MHz      CL 18pF          Crystal
-- Y1  
+ABLS-8.000MHZ-B4-T        HC-49/US    8MHz      CL 18pF          Crystal
+- Y1
+
+B1911USD-20D000114U1930   0603        RED       Vf 2V            LED
+- D1, D2, D3, D4
+
+RC0603FR-13270RL          0603        270Ohm    0.1W             Resistor
+- R1, R5, R6, R9
 ````

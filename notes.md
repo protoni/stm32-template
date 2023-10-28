@@ -165,9 +165,6 @@ CL10B105KQ8NNNC           0603        1uF       6.3V             Ceramic cap.
 CL10A106MQ8NNNC           0603        10uF      6.3V             Ceramic cap.
 - C5, C6, C8, C10, C12, C14
 
-ABLS-8.000MHZ-B4-T        HC-49/US    8MHz      CL 18pF          Crystal
-- Y1
-
 B1911USD-20D000114U1930   0603        RED       Vf 2V            LED
 - D1, D2, D3, D4
 
@@ -192,6 +189,15 @@ PTS636 SL43 SMTR LFS                  2Pin                       Button
 UJ2-MIBH-G-SMT-TR                                                Micro USB-B
 - J1
 
+GPHC204-1002A001R1BF                  2x10      2.544mm female   Connector
+- J4
+
+NPPC102KFMS-RC                        2x10Pin   2.54mm pitch     Connector
+- J3, J5
+
+PHDD-SS004G1ABOGE-B005                2x2       2.544mm male     Connector
+- J7
+
 AMS1117-3.3              TO-261-4     3.3V                       Regulator
 - U1
 
@@ -201,8 +207,8 @@ STM32F103R8T6                                                    MCU
 IP4234CZ6               SOT-457                                  TVS DIODE 
 - U3
 
-NPPC102KFMS-RC                        2x10Pin   2.54mm pitch     Connector
-- J3, J5
+ABLS-8.000MHZ-B4-T        HC-49/US    8MHz      CL 18pF          Crystal
+- Y1
 
 
 

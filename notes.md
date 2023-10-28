@@ -16,6 +16,10 @@
     - 0.15 Ohm DCR
     - 800mA Max current
     - 100 Ohm impedance @ 100MHz
+  - Or MPZ1608S101ATAH0:
+    - 0.03 Ohm DCR
+    - 3A Max current
+    - 100 Ohm impedance @ 100MHz
 - Reset pin has internal pull-up resistor
 - Boot: AN2606
   - Pull low to program normally with SWD
@@ -41,6 +45,7 @@
       at a time can be used as an output, the speed has to be
       limited to 2 MHz with a maximum load of 30 pF and these I/Os must
       not be used as a current source (e.g. to drive an LED).
+  - Enable internal pull-up on unconnected pins
 ````
 
 ````bash
@@ -93,6 +98,8 @@ P = 6.5 mW
 
 # Resistor 
 RC0603FR-13270RL = 270 Ohm / 0.1W
+
+
 ````
 
 ````bash
@@ -166,4 +173,37 @@ B1911USD-20D000114U1930   0603        RED       Vf 2V            LED
 
 RC0603FR-13270RL          0603        270Ohm    0.1W             Resistor
 - R1, R5, R6, R9
+
+SMD0805B035TF             0805        350mA     6V               Resettable Fuse
+- F1
+
+MPZ1608S101ATAH0          0603        100R      0.03 Ohm DCR/3A  Ferrite bead
+- FB1, FB2
+
+RMCF0603FT10K0            0603        10k       0.1W             Resistor
+- R2, R4, R7, R8
+
+WR06X1501FTL              0603        1k5       0.1W             Resistor
+- R3
+
+PTS636 SL43 SMTR LFS                  2Pin                       Button
+- SW1, SW2, SW3    
+
+UJ2-MIBH-G-SMT-TR                                                Micro USB-B
+- J1
+
+AMS1117-3.3              TO-261-4     3.3V                       Regulator
+- U1
+
+STM32F103R8T6                                                    MCU
+- U2
+
+IP4234CZ6               SOT-457                                  TVS DIODE 
+- U3
+
+NPPC102KFMS-RC                        2x10Pin   2.54mm pitch     Connector
+- J3, J5
+
+
+
 ````

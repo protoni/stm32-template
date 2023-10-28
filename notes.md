@@ -44,6 +44,25 @@
 ````
 
 ````bash
+# Crystal
+ABLS-8.000MHZ-B4-T
+
+# MCU OSC_IN input capacitance
+5pF
+
+# Calculate external capacitance
+Crystal load capacitance      ( C_L )   = 18pF
+Parasitic capacitance         ( C_P )   = ~4pF
+MCU osc pin input capacitance ( C_IN )  = 5pF
+External capacitance          ( C_EXT ) = ?
+
+C_EXT = C_L + C_P + C_IN
+C_EXT = 18pF + 4pF + 5pF
+C_EXT = 27pF
+
+````
+
+````bash
 # Regulator AMS1117-3.3
 - 5V -> 3.3V
 - Needs 22uF tantalum capacitor for output filtering, if adjustment
@@ -61,8 +80,10 @@
   - for example SMD0805B035TF
     - 0.10sec trip time
     - hold current is a little bit over the needed value ( 330mA ),
-      but it's a lot cheaper than fuses with lower value
+      but it's a lot cheaper than fuses with lower value'
 - Add ESD protection diodes for USB D+/D- ( for example IP4234CZ6 )
+  - TODO: Add back drive protection diode to VCC to avoid short circuit on the
+    data lines when VBUS is down
 ````
 
 ````bash
@@ -80,4 +101,30 @@
 ````bash
 # TODO
 - Add test points
+````
+
+````bash
+# Parts
+
+# Part num.         # Package   # Value   # Info           # Type
+TMCP0J106MTRF       0805        10uF      6.3V             Tantalum cap.
+- C1
+
+TL8W9226M010C       0805        22uF      10V              Tantalum cap.
+- C2
+
+VJ0805A270GXQCW1BC  0805        27pF      10V              Ceramic cap.
+- C17, C18
+
+KGM15AR70J104KM     0603        0.1uF     6.3V             Ceramic cap.
+- C3, C7, C9, C11, C13, C15, C19, C21
+
+CL10B105KQ8NNNC     0603        1uF       6.3V             Ceramic cap.
+- C4, C16, C20
+
+CL10A106MQ8NNNC     0603        10uF      6.3V             Ceramic cap.
+- C5, C6, C8, C10, C12, C14
+
+ABLS-8.000MHZ-B4-T  HC-49/US    8MHz      CL 18pF          Crystal
+- Y1  
 ````

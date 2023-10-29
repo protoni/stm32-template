@@ -141,6 +141,13 @@ RC0603FR-13270RL = 270 Ohm / 0.1W
 ````bash
 # TODO
 - Add test points
+- Change GPIO header connector, current one is expensive
+````
+
+````bash
+# PCB
+- 0.25mm signal trace
+- 0.5
 ````
 
 ````bash

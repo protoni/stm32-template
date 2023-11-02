@@ -145,6 +145,21 @@ RC0603FR-13270RL = 270 Ohm / 0.1W
     transistor.
     - Use for example BSS84AK pFET
     - Use PD2 pin to drive the FET
+- Data lines impedance matching
+  - Target: 90 Ohm
+  - Trace width: 0.134mm
+  - Trace spacing: 0.25mm
+  - Trace thickness: 1.38mm ( 1oz )
+  - Substrate height: 1.4650mm
+    - Got it from JLCPCB's impdence calculator:'
+    - https://jlcpcb.com/pcb-impedance-calculator/
+  - Dielectric constant: 4.5
+  - Calculator: https://www.pcbway.com/pcb_prototype/impedance_calculator.html
+  - MCU's USB driver has automatic impedance matching so no need for 22 ohm'
+   series resistors:
+    - In peripheral mode, the VBUS power is always provided through the cable. The
+      USB FS impedance driver is always managed internally to avoid the need to
+      add external serial resistors on the data line path
 ````
 
 ````bash

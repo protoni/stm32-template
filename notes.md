@@ -122,8 +122,20 @@ RC0603FR-13270RL = 270 Ohm / 0.1W
     - hold current is a little bit over the needed value ( 330mA ),
       but it's a lot cheaper than fuses with lower value'
 - Add ESD protection diodes for USB D+/D- ( for example IP4234CZ6 )
-  - TODO: Add back drive protection diode to VCC to avoid short circuit on the
+  - Add back drive protection diode to VCC to avoid short circuit on the
     data lines when VBUS is down
+    - Use Schottky diode for fast reverse voltage blocking
+    - For example BAT54-7-F
+      - Low 800mV forward voltage drop @ 100mA
+      - Low 2uA reverse leakage current
+      - Average rectified output current 200mA ( 600mA peak )
+      - Can handle reverse voltage up to 30V
+      - Low power dissipation 200mW
+    - This might be better: NSR0530HT1G
+      - Lower 370mV forward voltage drop @ 100mA
+      - Lower 1.4uA reverse current
+      - Higher 500mA average rectified output current
+      - Power dissipation 160mW/250mW depending on mounting
 - D+ line needs 1.5k Ohm pull-up resistor to 3.3V to act as a USB device, rather
   than USB host. The chip doesn't support host mode either, so there's no internal
   pull-up. One way is to pull it straight to 3.3V, but then the USB enumeration
@@ -184,6 +196,9 @@ CL10A106MQ8NNNC           0603        10uF      6.3V             Ceramic cap.
 B1911USD-20D000114U1930   0603        RED       Vf 2V            LED
 - D1, D2, D3, D4
 
+NSR0530HT1G               SOD-323                                Schottky
+- D5
+
 RC0603FR-13270RL          0603        270Ohm    0.1W             Resistor
 - R1, R5, R6, R9
 
@@ -197,7 +212,7 @@ RMCF0603FT10K0            0603        10k       0.1W             Resistor
 - R2, R4, R7, R8
 
 WR06X1501FTL              0603        1k5       0.1W             Resistor
-- R3
+- R10
 
 PTS636 SL43 SMTR LFS                  2Pin                       Button
 - SW1, SW2, SW3    
@@ -214,7 +229,7 @@ NPPC102KFMS-RC                        2x10Pin   2.54mm pitch     Connector
 PHDD-SS004G1ABOGE-B005                2x2       2.544mm male     Connector
 - J7
 
-AMS1117-3.3              TO-261-4     3.3V                       Regulator
+AMS1117-3.3              SOT-223      3.3V                       Regulator
 - U1
 
 STM32F103R8T6                                                    MCU
@@ -223,9 +238,10 @@ STM32F103R8T6                                                    MCU
 IP4234CZ6               SOT-457                                  TVS DIODE 
 - U3
 
-ABLS-8.000MHZ-B4-T        HC-49/US    8MHz      CL 18pF          Crystal
+ABLS-8.000MHZ-B4-T      HC-49/US      8MHz      CL 18pF          Crystal
 - Y1
 
-
+BSS84AK,215             SOT-23        VGSth -1.1 - -2.1V         pFET   
+- Q1
 
 ````

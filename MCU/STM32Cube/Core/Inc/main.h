@@ -57,6 +57,20 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define Status_LED_Pin GPIO_PIN_3
+#define Status_LED_GPIO_Port GPIOC
+#define LED1_Pin GPIO_PIN_4
+#define LED1_GPIO_Port GPIOC
+#define LED2_Pin GPIO_PIN_5
+#define LED2_GPIO_Port GPIOC
+#define Button1_Pin GPIO_PIN_0
+#define Button1_GPIO_Port GPIOB
+#define Button2_Pin GPIO_PIN_1
+#define Button2_GPIO_Port GPIOB
+#define BOOT1_Pin GPIO_PIN_2
+#define BOOT1_GPIO_Port GPIOB
+#define USB_E_Pin GPIO_PIN_2
+#define USB_E_GPIO_Port GPIOD
 
 /* USER CODE BEGIN Private defines */
 

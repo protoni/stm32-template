@@ -124,6 +124,15 @@ RC0603FR-13270RL = 270 Ohm / 0.1W
 - Add ESD protection diodes for USB D+/D- ( for example IP4234CZ6 )
   - TODO: Add back drive protection diode to VCC to avoid short circuit on the
     data lines when VBUS is down
+- D+ line needs 1.5k Ohm pull-up resistor to 3.3V to act as a USB device, rather
+  than USB host. The chip doesn't support host mode either, so there's no internal
+  pull-up. One way is to pull it straight to 3.3V, but then the USB enumeration
+  wont work on soft restarts ( when flashing firmware ) and the USB cable needs
+  to be unplugged and plugged back in.
+  - Another way is to control the pull-up resistor with a MCU pin controlled
+    transistor.
+    - Use for example BSS84AK pFET
+    - Use PD2 pin to drive the FET
 ````
 
 ````bash

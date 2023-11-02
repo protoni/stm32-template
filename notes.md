@@ -115,7 +115,7 @@ RC0603FR-13270RL = 270 Ohm / 0.1W
 ````bash
 # USB
 - Micro USB-B
-- Leave shield floating
+- Connect shield straight to GND with vias
 - Resettable fuse for VBUS
   - for example SMD0805B035TF
     - 0.10sec trip time

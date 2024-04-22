@@ -91,7 +91,8 @@ static void MX_USART1_UART_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	// Re-enable interrupts
+  __enable_irq();
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -116,7 +117,7 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  printf("Application version %d.%d started!\n",
+  printf("Application version %d.%d started!\r\n",
 		  App_Version[0], App_Version[1]);
 
   /* USER CODE END 2 */
@@ -126,13 +127,14 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  for(uint8_t i = 0; i < App_Start_LED_Cycle_Times; i++) {
-		  Toggle_Status_LED();
 
-		  Sleep(App_Start_LED_Cycle_Delay);
-	  }
 
     /* USER CODE BEGIN 3 */
+	for(uint8_t i = 0; i < App_Start_LED_Cycle_Times; i++) {
+		Toggle_Status_LED();
+
+		Sleep(App_Start_LED_Cycle_Delay);
+	}
   }
   /* USER CODE END 3 */
 }

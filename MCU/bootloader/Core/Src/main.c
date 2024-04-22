@@ -119,7 +119,7 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  printf("Bootloader version %d.%d started!\n",
+  printf("Bootloader version %d.%d started!\r\n",
 		  BL_Version[0], BL_Version[1]);
 
   /* USER CODE END 2 */
@@ -129,14 +129,15 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  for(uint8_t i = 0; i < BL_Start_LED_Cycle_Times; i++) {
-		  Toggle_Status_LED();
 
-		  Sleep_MS(BL_Start_LED_Cycle_Delay);
-	  }
-
-	  Jump_Application();
     /* USER CODE BEGIN 3 */
+	for(uint8_t i = 0; i < BL_Start_LED_Cycle_Times; i++) {
+		Toggle_Status_LED();
+
+		Sleep_MS(BL_Start_LED_Cycle_Delay);
+	}
+
+	Jump_Application();
   }
   /* USER CODE END 3 */
 }
@@ -321,16 +322,31 @@ static void Jump_Application(void)
 	 *
 	 * 0x8010000 Memory end
 	 * 0x8004400 Application ( 47 KB )
-	 * 0x8004000 Reserverd   ( 1  KB )
+	 * 0x8004000 Reserved    ( 1  KB )
 	 * 0x8000000 Bootloader  ( 16 KB )
 	 */
-	printf("Jump to application code \n");
+	printf("Jump to application code \r\n");
 
 	// Create a main entry point for the application code
-	void (*App_Reset_Handler)(void) = (void*)(*((volatile uint32_t*)(0x08004400 + 4U)));
+	uint32_t app_start_addr = *((volatile uint32_t*) 0x08004400);
+	uint32_t app_reset_vect = *((volatile uint32_t*) (0x08004400 + 4U));
+	void (*App_Reset_Handler)(void) = (void*) app_reset_vect;
 
 	// Jump to the application main entry point
-	App_Reset_Handler();
+	if (App_Reset_Handler != NULL) {
+		//__disable_irq();
+
+		// Set main stack pointer
+	    //__set_MSP(app_start_addr);
+
+	    // Set the vector table to the application's vector table
+	    //SCB->VTOR = 0x08004400;
+
+	    printf("Jumping..\r\n");
+	    App_Reset_Handler();
+	} else {
+	    printf("Invalid reset handler address\r\n");
+	}
 }
 
 /* USER CODE END 4 */

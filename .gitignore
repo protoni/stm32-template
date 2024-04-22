@@ -1,1 +1,3 @@
 kicad/stm32-template-backups/
+MCU/application/Debug
+MCU/bootloader/Debug

@@ -16,9 +16,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 }
 
-rootProject.name = "STM32_Viewer"
-include(":app")
- 
+rootProject.name = "STM32-Viewer"
+include ':app'

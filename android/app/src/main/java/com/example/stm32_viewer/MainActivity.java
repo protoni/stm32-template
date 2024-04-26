@@ -14,8 +14,6 @@ import com.example.stm32_viewer.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-    //private final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
-
     private ActivityMainBinding binding;
 
     @Override
